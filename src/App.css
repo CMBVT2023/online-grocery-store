@@ -1,0 +1,22 @@
+#main-container {
+    display: flex;
+    justify-content: center;
+} 
+
+.StoreFront {
+    width: 1000px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+}
+
+.GroceryList {
+    height: 50vh;
+    max-height: 500px;
+    overflow-y: auto;
+    width: 500px;
+
+    color: red;
+    background-color: aliceblue;
+}
+
