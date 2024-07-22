@@ -24,9 +24,9 @@ function App() {
     return (
       <div id="main-container">
         <div className='StoreFront'>
-          <CategoryList divName='GroceryList' category="Produce" list={Produce}/>
-          <CategoryList divName='GroceryList' category="Dairy" list={Dairy}/>
-          <CategoryList divName='GroceryList' category="Meat" list={Meat}/>
+          <CategoryList category="Produce" list={Produce}/>
+          <CategoryList category="Dairy" list={Dairy}/>
+          <CategoryList category="Meat" list={Meat}/>
         </div>
       </div>
     )
