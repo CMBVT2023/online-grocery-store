@@ -1,16 +1,17 @@
 import React from 'react';
+import Inventory from '../StoreInventory.js';
 
-function AddToCart(props) {
-    const [ inCart, setInCart ] = React.useState(false);
-    const [ buttonText, setButtonText ] = React.useState('Add To Cart'); 
+function InteractionButton(props) {
+    const [ inCart, setInCart ] = React.useState(props.cartItem);
 
-    React.useEffect(() => {
-        if (inCart) {
-            setButtonText('Remove From Cart')
-        } else {
-            setButtonText('Add To Cart')
-        }
-    }, [inCart])
+    const addToCart = (productNum) => {
+        console.log("Added")
+    }
+    
+    function removeFromCart(productNum) {
+        console.log(productNum, "Removed")
+    }
+
     
     function handleClick() {
         let item = props.addition;
@@ -21,7 +22,8 @@ function AddToCart(props) {
                 alert(`${item} have been removed from the cart`);
             } else {
                 alert(`${item} has been removed from the cart`);
-            }            
+            }
+            removeFromCart(props.productNum);
         } else {
             setInCart(true);
             if (item[item.length - 1] === 's') {
@@ -29,13 +31,16 @@ function AddToCart(props) {
             } else {
                 alert(`${item} has been added to the cart`);
             }
+            addToCart(props.productNum);
         }
         
     }
 
     return (
-        <button onClick={handleClick}>{buttonText}</button>
+        <button onClick={handleClick}>{inCart ? 'Remove From Cart' : 'Add To Cart'}</button>
+        
     )
 }
 
-export default AddToCart;
+// <button onClick={handleClick}>{buttonText}</button>
+export default InteractionButton;

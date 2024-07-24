@@ -1,20 +1,23 @@
 import React from 'react'
 import GroceryItem from './GroceryItem';
+import InteractionButton from './InteractionButton';
 
 function CategoryList(props) {
 
     return (
         <div className='GroceryList'>
             <ul>
-                {props.list.map((obj, i) => 
-                    <GroceryItem 
-                    key={i} 
-                    id={obj.inventoryNum}
-                    productName={obj.itemName}
-                    productPrice={obj.price}
-                    productWeight={obj.weight}
-                    />
-                )}
+                {props.list.map((obj, i) => (
+                    <li key={i} >
+                        <GroceryItem 
+                        id={obj.inventoryNum}
+                        productName={obj.itemName}
+                        productPrice={obj.price}
+                        productWeight={obj.weight}
+                        /> 
+                        <InteractionButton cartItem={false} addition={obj.itemName} productNum={obj.inventoryNum}/>
+                    </li>)
+                    )}
             </ul>
         </div>
       )

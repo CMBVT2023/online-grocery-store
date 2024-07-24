@@ -1,14 +1,13 @@
 import React from 'react';
-import AddToCart from './AddToCart';
+import InteractionButton from './InteractionButton';
 
 function GroceryItem(props) {
     return (
-        <li>
+        <div>
             <h3>{props.productName}</h3>
             <h4>${props.productPrice}</h4>
             <h5>{props.productWeight} lbs</h5>
-            <AddToCart addition={props.productName}/>
-        </li>
+        </div>
     )
 }
 
