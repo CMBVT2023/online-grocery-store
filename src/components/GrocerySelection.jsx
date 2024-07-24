@@ -1,5 +1,5 @@
 import React from 'react';
-import Inventory from '../StoreInventory.js'
+import Inventory from '../modules/store-inventory.js'
 import CategoryList from './CategoryList';
 
 function GrocerySelection() {
