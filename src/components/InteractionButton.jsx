@@ -3,7 +3,7 @@ import * as storageModule from '../modules/cart-storage.js'
 
 function InteractionButton(props) {
     const [ inCart, setInCart ] = React.useState(props.cartItem);
-    
+
     function handleClick() {
         let item = props.addition;
         if (inCart) {
@@ -13,7 +13,7 @@ function InteractionButton(props) {
             } else {
                 alert(`${item} has been removed from the cart`);
             }
-            storageModule.CartStorage.removeFromCart(props.productNum);
+            props.removeFromCart(props.productNum);
         } else {
             setInCart(true);
             if (item[item.length - 1] === 's') {
@@ -21,7 +21,7 @@ function InteractionButton(props) {
             } else {
                 alert(`${item} has been added to the cart`);
             }
-            storageModule.CartStorage.addToCart(props.productNum);
+            props.addToCart(props.productNum);
         }
         
     }
