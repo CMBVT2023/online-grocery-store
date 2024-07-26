@@ -7,6 +7,7 @@ function GroceryItem(props) {
             <h3>{props.productName}</h3>
             <h4>${props.productPrice}</h4>
             <h5>{props.productWeight} lbs</h5>
+            {props.productAmount !== undefined && <h5>Items: {props.productAmount}</h5>}
         </div>
     )
 }

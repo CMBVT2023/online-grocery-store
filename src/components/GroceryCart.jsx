@@ -22,11 +22,13 @@ function GroceryCart(props) {
                             productName={obj.itemName}
                             productPrice={obj.price}
                             productWeight={obj.weight}
+                            productAmount={obj.itemAmount}
                             /> 
                             <InteractionButton removeFromCart={props.removeFromCart} cartItem={true} addition={obj.itemName} productNum={obj.inventoryNum}/>
                         </li>)
                         )}
                 </ol>
+                <button onClick={props.clearCart}>Clear Cart</button>
             </div>
         )
     }
