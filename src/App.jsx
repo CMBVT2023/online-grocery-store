@@ -148,9 +148,8 @@ function App() {
               </li>
             ))}
           </ul>
+          {userCart.length != 0 ? <button onClick={clearCart}>Clear Cart</button> : ''}
         </div>
-        {/* <GrocerySelection addToCart={addToCart} removeFromCart={removeFromCart} list={Inventory} cart={userCart} />
-        <GroceryCart clearCart={clearCart} removeFromCart={removeFromCart} cart={userCart}/> */}
       </div>
     )
 }
