@@ -5,6 +5,15 @@ import Inventory from './modules/store-inventory.js'
 import * as storageModule from './modules/cart-storage.js'
 import './App.css'
 
+// I had a lot of issues with updating or rerendering certain button text and more. The issue
+// ended up being caused by the amount of components that I attempted to use since information can only flow
+// downstream, and thus, when updating the user cart stored in App, having to go through and ensure that all the 
+// components all update properly which left room for a lot of errors.
+
+// Reducing the amount of components and only using them in certain situations helped.
+// Biggest takeaway for me was that even though components are useful, I should not make everything into their own component 
+// since it adds redundancy, adds room for more errors, and increases complexity. 
+
 function App() {
     // Initializes a state variable to store the user's cart, initializes with an empty array.
     const [ userCart, setUserCart ] = React.useState(storageModule.CartStorage.getShoppingCart());
@@ -110,7 +119,7 @@ function App() {
                   addToCart={addToCart} 
                   removeFromCart={removeFromCart} 
                   cartItem={false} 
-                  buttonText={checkInCart(obj.inventoryNum)} //change this
+                  buttonText={checkInCart(obj.inventoryNum)} //checks if the item is already in cart and returns true if it is and false if it is not.
                   addition={obj.itemName}
                   productNum={obj.inventoryNum}
                   />
@@ -132,7 +141,7 @@ function App() {
                 <InteractionButton
                   removeFromCart={removeFromCart}
                   cartItem={true}
-                  buttonText={obj.itemAmount > 1 ? true : false}
+                  buttonText={obj.itemAmount > 1 ? true : false} // checks if the item amount is greater than one, if so sets the prop to true if not, sets it to false.
                   addition={obj.itemName}
                   productNum={obj.inventoryNum}
                 />
