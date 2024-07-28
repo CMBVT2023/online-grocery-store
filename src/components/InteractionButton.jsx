@@ -1,23 +1,22 @@
 import React from 'react';
-import * as storageModule from '../modules/cart-storage.js'
 
 function InteractionButton(props) {
+    const [buttonText, setButtonText] = React.useState('');
 
-
+    React.useEffect(() => {
+            setButtonText(props.buttonText);
+    }, [props.buttonText]);
 
     function handleClick(bool) {
         if (bool) {
             props.removeFromCart(props.productNum);
         } else {
             props.addToCart(props.productNum);
-        }
-
-        
+        }    
     }
 
     return (
-        <button onClick={() => {handleClick(props.cartItem)}}>{props.cartItem ? 'Remove From Cart' : 'Add To Cart'}</button>
-        
+        <button onClick={() => {handleClick(props.cartItem)}}>{buttonText}</button>
     )
 }
 
