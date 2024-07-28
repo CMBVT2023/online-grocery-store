@@ -10,7 +10,7 @@
     justify-content: space-around;
 }
 
-.GroceryList {
+.grocery-inventory {
     height: 50vh;
     max-height: 500px;
     overflow-y: auto;

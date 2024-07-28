@@ -1,6 +1,6 @@
 import React from 'react';
-import GrocerySelection from './components/GrocerySelection';
-import GroceryCart from './components/GroceryCart';
+import GroceryItem from './components/GroceryItem.jsx';
+import InteractionButton from './components/InteractionButton.jsx';
 import Inventory from './modules/store-inventory.js'
 import * as storageModule from './modules/cart-storage.js'
 import './App.css'
@@ -96,8 +96,52 @@ function App() {
 
     return (
       <div id="main-container">
-        <GrocerySelection addToCart={addToCart} removeFromCart={removeFromCart} list={Inventory} cart={userCart} />
-        <GroceryCart clearCart={clearCart} removeFromCart={removeFromCart} cart={userCart}/>
+        <div className='grocery-inventory'>
+          <ul>
+            {Inventory.map((obj, i) => (
+              <li key={'inventory' + i}>
+                <GroceryItem 
+                  id={obj.inventoryNum}
+                  productName={obj.itemName}
+                  productPrice={obj.price}
+                  productWeight={obj.weight}
+                  />
+                <InteractionButton 
+                  addToCart={addToCart} 
+                  removeFromCart={removeFromCart} 
+                  cartItem={false} 
+                  buttonText={checkInCart(obj.inventoryNum)} //change this
+                  addition={obj.itemName}
+                  productNum={obj.inventoryNum}
+                  />
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className='grocery-cart'>
+          <ul>
+            {userCart.map((obj, i) => (
+              <li key={'cart_' + i}>
+                <GroceryItem 
+                id={obj.inventoryNum}
+                productName={obj.itemName}
+                productPrice={obj.price}
+                productWeight={obj.weight}
+                productAmount={obj.itemAmount}
+                />
+                <InteractionButton
+                  removeFromCart={removeFromCart}
+                  cartItem={true}
+                  buttonText={obj.itemAmount > 1 ? true : false}
+                  addition={obj.itemName}
+                  productNum={obj.inventoryNum}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* <GrocerySelection addToCart={addToCart} removeFromCart={removeFromCart} list={Inventory} cart={userCart} />
+        <GroceryCart clearCart={clearCart} removeFromCart={removeFromCart} cart={userCart}/> */}
       </div>
     )
 }

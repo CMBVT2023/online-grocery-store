@@ -4,8 +4,12 @@ function InteractionButton(props) {
     const [buttonText, setButtonText] = React.useState('');
 
     React.useEffect(() => {
-            setButtonText(props.buttonText);
-    }, [props.buttonText]);
+        if (props.cartItem) {
+            setButtonText(props.buttonText ? '-' : 'Remove From Cart');
+        } else {
+            setButtonText(props.buttonText ? '+' : 'Add To Cart');
+        }
+    }, [props.buttonText, props.cartItem]);
 
     function handleClick(bool) {
         if (bool) {
