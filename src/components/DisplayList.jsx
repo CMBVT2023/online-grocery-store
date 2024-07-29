@@ -1,12 +1,13 @@
 import React from "react";
 import GroceryItem from './GroceryItem';
 import InteractionButton from "./InteractionButton";
+import styles from '../styles/DisplayList.module.css';
 
 function DisplayList(props) {
 
     if (props.cartItems) {
         return (
-            <div>
+            <div className={styles.divStyle}>
                 <ul>
                     {props.list.map((obj, i) => (
                         <li key={'cart_' + i}> 
@@ -31,7 +32,7 @@ function DisplayList(props) {
         )
     } else {
         return (
-            <div>
+            <div className={styles.divStyle}>
                 <ul>
                     {props.list.map((obj, i) => (
                         <li key={'inventory_' + i}>

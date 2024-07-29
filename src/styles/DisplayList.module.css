@@ -1,0 +1,10 @@
+.divStyle {
+    height: 75vh;
+    max-height: 750px;
+    overflow-y: auto;
+    width: 500px;
+
+    color: #4D6A6D;
+    background-color: #EAE0CC;
+    scrollbar-color: #EAE0CC #A0A083;
+}

@@ -1,0 +1,13 @@
+.buttonStyle {
+    color: #DEFFF2;
+    background-color: #464F51;
+    border-color: transparent;
+    border-radius: 12px;
+    user-select: none;
+}
+
+.buttonStyle:hover {
+    color: #243E36;
+    background-color: #F1F7ED;
+    border-color: transparent;
+}

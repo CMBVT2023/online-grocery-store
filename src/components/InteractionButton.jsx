@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../styles/InteractionButton.module.css';
 
 function InteractionButton(props) {
     const [buttonText, setButtonText] = React.useState('');
@@ -20,7 +21,7 @@ function InteractionButton(props) {
     }
 
     return (
-        <button onClick={() => {handleClick(props.cartItem)}}>{buttonText}</button>
+        <button onClick={() => {handleClick(props.cartItem)}} className={styles.buttonStyle}>{buttonText}</button>
     )
 }
 

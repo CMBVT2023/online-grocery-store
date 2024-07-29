@@ -2,7 +2,7 @@ import React from 'react';
 import DisplayList from '../components/DisplayList.jsx';
 import Inventory from '../modules/store-inventory.js';
 import * as storageModule from '../modules/cart-storage.js';
-import '../styles/App.css';
+import styles from '../styles/StoreFront.module.css';
 
 // I learned the actual issue that was occurring, it was the fact that I had states and javascript running in the
 // separate component files instead of in a single parent container. This caused the out of sink changes to occur
@@ -99,22 +99,27 @@ function StoreFront() {
     };
 
     return (
-      <div id="main-container" >
-        <DisplayList
-        cartItems={false} 
-        list={Inventory} 
-        addToCart={addToCart} 
-        removeFromCart={removeFromCart}
-        checkInCart={checkInCart}
-        />
-
-        <DisplayList 
-        cartItems={true} 
-        list={userCart} 
-        removeFromCart={removeFromCart}
-        />
-
-        {userCart.length != 0 ? <button onClick={clearCart} id='clear-button'>Clear Cart</button> : ''}
+      <div id={styles.mainContainer}>
+        <h1 id={styles.storeTitle}>React's Wonderful Online Store of Groceries</h1>
+        <div>
+        <h2>Store Inventory: </h2>
+          <DisplayList
+          cartItems={false} 
+          list={Inventory} 
+          addToCart={addToCart} 
+          removeFromCart={removeFromCart}
+          checkInCart={checkInCart}
+          />
+        </div>
+        <div>
+          <h2>Cart:</h2>
+          <DisplayList 
+          cartItems={true} 
+          list={userCart} 
+          removeFromCart={removeFromCart}
+          />
+        </div>
+        {userCart.length != 0 ? <button onClick={clearCart} id={styles.clearButton}>Clear Cart</button> : ''}
         </div>
     )
 }

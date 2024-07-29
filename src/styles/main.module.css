@@ -2,4 +2,7 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    
+    background: #C9ADA1;
+    color: #4D6A6D;
 }

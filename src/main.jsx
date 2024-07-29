@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import StoreFront from './containers/StoreFront.jsx';
-import './styles/main.css'
+import './styles/main.module.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
