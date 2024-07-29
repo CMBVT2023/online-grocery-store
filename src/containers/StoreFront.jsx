@@ -1,6 +1,5 @@
 import React from 'react';
-import GroceryInventory from '../components/GroceryInventory.jsx';
-import GroceryCart from '../components/GroceryCart.jsx';
+import DisplayList from '../components/DisplayList.jsx';
 import Inventory from '../modules/store-inventory.js';
 import * as storageModule from '../modules/cart-storage.js';
 import '../styles/App.css';
@@ -101,15 +100,21 @@ function StoreFront() {
 
     return (
       <div id="main-container" >
-            <GroceryInventory
-              inventory={Inventory} 
-              addToCart={addToCart} 
-              removeFromCart={removeFromCart}
-              checkInCart={checkInCart}
-              />
+        <DisplayList
+        cartItems={false} 
+        list={Inventory} 
+        addToCart={addToCart} 
+        removeFromCart={removeFromCart}
+        checkInCart={checkInCart}
+        />
 
-            <GroceryCart removeFromCart={removeFromCart} userCart={userCart}/>
-            {userCart.length != 0 ? <button onClick={clearCart} id='clear-button'>Clear Cart</button> : ''}
+        <DisplayList 
+        cartItems={true} 
+        list={userCart} 
+        removeFromCart={removeFromCart}
+        />
+
+        {userCart.length != 0 ? <button onClick={clearCart} id='clear-button'>Clear Cart</button> : ''}
         </div>
     )
 }
