@@ -4,7 +4,7 @@ import styles from '../styles/InteractionButton.module.css';
 function InteractionButton(props) {
 
     function handleClick() {
-        props.interactionFunction(props.productNum);
+        props.interactionFunction(props.editAmount, props.productNum);
     }
 
     return (

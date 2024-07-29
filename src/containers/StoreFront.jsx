@@ -37,11 +37,11 @@ function StoreFront() {
       return result;
     }
 
-    const addToCart = (id) => {
+    const addToCart = (bool, id) => {
       let item = Inventory[findIndex(id, Inventory)];
       let result = checkInCart(item.inventoryNum);
 
-      if (!result) {
+      if (!bool && !result) {
         item.itemAmount = 1;
         setUserCart(prev => [ item, ...prev ]);
       } else {
@@ -69,10 +69,10 @@ function StoreFront() {
       }
     };
 
-    const removeFromCart = (id) => {
+    const removeFromCart = (bool, id) => {
       let item = userCart[findIndex(id, userCart)]
 
-      if (item.itemAmount <= 1) {
+      if (!bool) {
         setUserCart(prev => prev.filter((value) => {
             return value.inventoryNum != id;
           }
