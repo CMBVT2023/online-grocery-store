@@ -1,6 +1,6 @@
 import React from "react";
 import GroceryItem from './GroceryItem';
-import InteractionButton from "./InteractionButton";
+import InteractionButtonGroup from "../containers/InteractionButtonGroup.jsx";
 import styles from '../styles/DisplayList.module.css';
 
 function DisplayList(props) {
@@ -18,11 +18,11 @@ function DisplayList(props) {
                             productWeight={obj.weight}
                             productAmount={obj.itemAmount}
                             />
-                            <InteractionButton
+                            <InteractionButtonGroup
+                            forCart={true}
+                            addToCart={props.addToCart}
                             removeFromCart={props.removeFromCart}
-                            cartItem={true}
-                            buttonText={obj.itemAmount > 1 ? true : false} // checks if the item amount is greater than one, if so sets the prop to true if not, sets it to false.
-                            addition={obj.itemName}
+                            multipleInCart={obj.itemAmount > 1 ? true : false}
                             productNum={obj.inventoryNum}
                             />
                         </li>
@@ -42,12 +42,12 @@ function DisplayList(props) {
                             productPrice={obj.price}
                             productWeight={obj.weight}
                             />
-                            <InteractionButton 
-                            addToCart={props.addToCart} 
-                            removeFromCart={props.removeFromCart} 
-                            cartItem={false} 
-                            buttonText={props.checkInCart(obj.inventoryNum)} //checks if the item is already in cart and returns true if it is and false if it is not.
-                            addition={obj.itemName}
+                            <InteractionButtonGroup
+                            forCart={false}
+                            addToCart={props.addToCart}
+                            removeFromCart={props.removeFromCart}
+                            inCart={props.checkInCart(obj.inventoryNum)} //checks if the item is already in cart and returns true if it is and false if it is not.
+                            multipleInCart={obj.itemAmount > 1 ? true : false}
                             productNum={obj.inventoryNum}
                             />
                         </li>

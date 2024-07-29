@@ -4,10 +4,20 @@
     border-color: transparent;
     border-radius: 12px;
     user-select: none;
+    
 }
 
 .buttonStyle:hover {
     color: #243E36;
     background-color: #F1F7ED;
     border-color: transparent;
+}
+
+.disabledButtonStyle {
+    color: black;
+    background-color: rgba(178, 182, 175, 0.37);
+    border-color: transparent;
+    border-radius: 12px;
+    user-select: none;
+    cursor: not-allowed;
 }

@@ -100,7 +100,7 @@ function StoreFront() {
 
     return (
       <div id={styles.mainContainer}>
-        <h1 id={styles.storeTitle}>React's Wonderful Online Store of Groceries</h1>
+        <h1 id={styles.storeTitle}>Wonderful Online Store of Groceries</h1>
         <div>
         <h2>Store Inventory: </h2>
           <DisplayList
@@ -115,7 +115,8 @@ function StoreFront() {
           <h2>Cart:</h2>
           <DisplayList 
           cartItems={true} 
-          list={userCart} 
+          list={userCart}
+          addToCart={addToCart} 
           removeFromCart={removeFromCart}
           />
         </div>

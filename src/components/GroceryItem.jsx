@@ -1,5 +1,4 @@
 import React from 'react';
-import InteractionButton from './InteractionButton';
 
 function GroceryItem(props) {
     return (
