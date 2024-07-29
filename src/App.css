@@ -1,16 +1,11 @@
 #main-container {
     display: flex;
     justify-content: center;
-} 
-
-.StoreFront {
-    width: 1000px;
-    flex-wrap: wrap;
+    width: 100vw;
     display: flex;
     justify-content: space-around;
-}
-
-.grocery-inventory {
+} 
+.grocery {
     height: 50vh;
     max-height: 500px;
     overflow-y: auto;
@@ -20,3 +15,8 @@
     background-color: aliceblue;
 }
 
+#clear-button {
+    position: absolute;
+    bottom: 1%;
+    right: 2%;
+}
