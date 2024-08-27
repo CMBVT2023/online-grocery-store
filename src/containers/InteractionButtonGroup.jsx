@@ -39,6 +39,7 @@ function InteractionButtonGroup(props) {
                     interactionFunction={props.removeFromCart}
                     disable={(props.multipleInCart && props.inCart) ? false : true}
                     productNum={props.productNum}
+                    editAmount={true}
                     />
     
                 <InteractionButton 
@@ -46,6 +47,7 @@ function InteractionButtonGroup(props) {
                     interactionFunction={props.inCart ? props.removeFromCart : props.addToCart}
                     disable={false}
                     productNum={props.productNum}
+                    editAmount={false}
                     />
     
                 <InteractionButton
@@ -53,6 +55,7 @@ function InteractionButtonGroup(props) {
                     interactionFunction={props.addToCart}
                     disable={props.inCart ? false : true}
                     productNum={props.productNum}
+                    editAmount={true}
                     />
             </div>
         )
